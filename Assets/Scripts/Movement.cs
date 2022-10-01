@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     {
         groundedPlayer = controller.isGrounded;
 
-        if (groundedPLayer)
+        if (groundedPlayer)
         {
             PlayerVelocity.y = 0.0f;
         }
@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
         }
 
         PlayerVelocity.y += gravityValue * Time.deltaTime;
-        controller.move(PlayerVelocity * time);
+        controller.Move(PlayerVelocity * Time.deltaTime);
 
         
     }
@@ -49,10 +49,12 @@ public class Movement : MonoBehaviour
     {
         groundedPlayer = controller.isGrounded;
 
+        Debug.Log(controller.velocity.y);
+
 
         if(controller.velocity.y == 0)
         {
-            
+            MovementJump();
         }
 
         float horizontal = Input.GetAxisRaw("Horizontal");
