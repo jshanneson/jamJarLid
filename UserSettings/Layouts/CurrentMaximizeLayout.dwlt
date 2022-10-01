@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 5026
+  controlID: 12698
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,8 +59,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.600006}
+      snapOffset: {x: -101, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -262,9 +262,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.020889, y: 6.701521, z: 6.11569}
+    m_Target: {x: 2.276341, y: 1.6253233, z: -0.23948148}
     speed: 2
-    m_Value: {x: 2.020889, y: 6.701521, z: 6.11569}
+    m_Value: {x: 2.276341, y: 1.6253233, z: -0.23948148}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -311,13 +311,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.03574995, y: -0.9560976, z: 0.1319273, w: -0.25936094}
+    m_Target: {x: -0.23203489, y: -0.74315953, z: 0.3191774, w: -0.5405045}
     speed: 2
-    m_Value: {x: -0.035550714, y: -0.95645046, z: 0.13197593, w: -0.25791702}
+    m_Value: {x: -0.23282827, y: -0.74262583, z: 0.32026854, w: -0.5401166}
   m_Size:
-    m_Target: 2.5479116
+    m_Target: 3.8206778
     speed: 2
-    m_Value: 2.5479116
+    m_Value: 3.8206778
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 5027
+  controlID: 12699
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 5028
+  controlID: 12700
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -449,10 +449,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 5285ffff6ce3ffffdae3ffff1afbffff
+      scrollPos: {x: 0, y: 208.4}
+      m_SelectedIDs: 10570000
+      m_LastClickedID: 22288
+      m_ExpandedIDs: 920effff4ca3ffff52e1ffff6ce3ffffdae3ffff1afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -503,7 +503,7 @@ MonoBehaviour:
   - {fileID: 8}
   - {fileID: 9}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -696,21 +696,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/3D Models
+    - Assets/Materials
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/3D Models
+  - Assets/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Joshua\1_School\4A waterloo\Waterloo Game Jam\jamJarLid
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ce540000
-    m_LastClickedID: 21710
+    m_SelectedIDs: e6570000
+    m_LastClickedID: 22502
     m_ExpandedIDs: 000000002a54000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -764,8 +764,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 10570000
+    m_LastClickedInstanceID: 22288
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
