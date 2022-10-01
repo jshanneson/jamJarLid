@@ -11,11 +11,12 @@ public class Movement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
-    public float speed = 6;
+    public float speed = 3.5f;
     public float gravity = -9.81f;
-    public float jumpHeight = 3;
+    public float jumpHeight = 1.5f;
     Vector3 velocity;
     public bool isGrounded = true;
+    bool JumpBoost = false;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -26,28 +27,41 @@ public class Movement : MonoBehaviour
 
     public Rigidbody rb;
 
-    /*void OnCollisionEnter(Collision collision)
+    // Update is called once per frame
+
+    void onTriggerEnter(Collision enter)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (enter.gameObject.layer == 7)
         {
-            Debug.Log("Hit");
-            isGrounded = true;
+            JumpBoost = true;
+            rb.AddForce(Vector3.up * 4.0f, ForceMode.Impulse);
+            //Debug.Log("Layer 7");
+        }
+
+        if (enter.gameObject.layer == 8)
+        {
+            //Debug.Log("Layer 8");
         }
     }
-    void OnCollisionExit(Collision collision)
+
+    void onTriggerExit(Collision exit)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (exit.gameObject.layer == 7)
         {
-            Debug.Log("False");
-            isGrounded = false;
+            JumpBoost = false;
         }
-    }*/
-    // Update is called once per frame
+    }
+
     void Update()
     {
         //jump
         //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         //Debug.Log(velocity.y);
+        if (JumpBoost)
+        {
+            jumpHeight = 6.0f;
+        }
+
         isGrounded = IsOnGround();
 
         if (isGrounded && velocity.y < 0)
@@ -81,6 +95,8 @@ public class Movement : MonoBehaviour
     bool IsOnGround()
     {
         int layerMask = 1 << 3;
+
+        //layerMask = 1 << 7;
 
         RaycastHit hit;
 

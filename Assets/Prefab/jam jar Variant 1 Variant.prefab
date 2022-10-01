@@ -205,7 +205,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ba91eeb867d5e409b3b20efce56589, type: 2}
+      objectReference: {fileID: 2100000, guid: 4b756a52738e50d498c7fae6922c1041, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0dbe06dd5fe8c43bc09b6b6f49d1d4, type: 3}
 --- !u!54 &277538281882902470 stripped
@@ -333,3 +333,17 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1548091289709465896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246890307884781407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7934e6949fe7c9641ae337b2274505e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpBoost: 0
+  MoveScript: {fileID: 5246890307884781407}
