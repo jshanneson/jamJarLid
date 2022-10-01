@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3;
     Vector3 velocity;
-    bool isGrounded;
+    public bool isGrounded = true;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -24,11 +24,31 @@ public class Movement : MonoBehaviour
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
 
+    public Rigidbody rb;
+
+    /*void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            Debug.Log("Hit");
+            isGrounded = true;
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Debug.Log("False");
+            isGrounded = false;
+        }
+    }*/
     // Update is called once per frame
     void Update()
     {
         //jump
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //Debug.Log(velocity.y);
+        isGrounded = IsOnGround();
 
         if (isGrounded && velocity.y < 0)
         {
@@ -55,6 +75,22 @@ public class Movement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
+    }
+
+    bool IsOnGround()
+    {
+        int layerMask = 1 << 3;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(rb.worldCenterOfMass, -transform.up, out hit, 0.25f, layerMask))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
