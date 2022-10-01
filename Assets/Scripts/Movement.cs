@@ -24,23 +24,27 @@ public class Movement : MonoBehaviour
     private Vector3 PlayerVelocity;
 
 
-    void MovementJump()
+    Vector3 MovementJump()
     {
         groundedPlayer = controller.isGrounded;
+
+        Debug.Log(groundedPlayer);
 
         if (groundedPlayer)
         {
             PlayerVelocity.y = 0.0f;
         }
 
-        if(jump_pressed && groundedPlayer)
+        if(Input.GetButtonDown("Jump") && groundedPlayer)
         {
             PlayerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             jump_pressed = false;
         }
 
         PlayerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(PlayerVelocity * Time.deltaTime);
+        //controller.Move(PlayerVelocity.normalized * Time.deltaTime);
+
+        return PlayerVelocity;
 
         
     }
@@ -48,19 +52,19 @@ public class Movement : MonoBehaviour
     void Update()
     {
         groundedPlayer = controller.isGrounded;
+        
+        Debug.Log(controller.isGrounded);
 
-        Debug.Log(controller.velocity.y);
-
-
-        if(controller.velocity.y == 0)
-        {
-            MovementJump();
-        }
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(horizontal, 0.0f, vertical).normalized;// normalize: Can't go faster if horizontal and vertical keys are pressed
+
+        if (controller.velocity.y == 0)
+        {
+            direction += MovementJump();
+        }
 
         if (direction.magnitude >= 0.1f)
         {
