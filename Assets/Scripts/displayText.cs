@@ -14,6 +14,7 @@ public class displayText : MonoBehaviour
     // On Trigger is caller when the player touches the trigger
     void OnTriggerEnter(Collider player)
     {
+            Debug.Log("trigger activated");
             npcText.SetActive(true);
     }
 
