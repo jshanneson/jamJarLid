@@ -52,16 +52,33 @@ public class Movement : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
         JumpBoost = IsOnGround(7);
+
+        isGrounded = IsOnGround(3);
+
+        if (IsOnGround(8))
+        {
+            player.death();
+        }
+
+        if (IsOnGround(9))
+        {
+            player.JarLid();
+        }
+    }
+
+    void Update()
+    {
+        //JumpBoost = IsOnGround(7);
 
         if (JumpBoost && JumpBoostTimer == 0.0f)
         {
             jumpHeight = 5.5f;
         }
 
-        isGrounded = IsOnGround(3);
+        //isGrounded = IsOnGround(3);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -95,7 +112,7 @@ public class Movement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
-        if (IsOnGround(8))
+        /*if (IsOnGround(8))
         {
             player.death();
         }
@@ -103,7 +120,7 @@ public class Movement : MonoBehaviour
         if (IsOnGround(9))
         {
             player.JarLid();
-        }
+        }*/
 
         if(!wasFalling && isFalling)
         {
