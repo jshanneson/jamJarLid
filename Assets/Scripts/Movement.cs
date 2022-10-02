@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
 
         if (JumpBoost && JumpBoostTimer == 0.0f)
         {
-            jumpHeight = 6.0f;
+            jumpHeight = 5.5f;
         }
 
         isGrounded = IsOnGround(3);
