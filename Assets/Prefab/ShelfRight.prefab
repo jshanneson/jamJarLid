@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 899296315933480976, guid: 6152841b75a24cd4bbe338366ad17895,
         type: 3}
       propertyPath: m_Name
-      value: shelf (1)
+      value: ShelfRight
       objectReference: {fileID: 0}
     - target: {fileID: 1708683655537197045, guid: 6152841b75a24cd4bbe338366ad17895,
         type: 3}
@@ -21,6 +21,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.763
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454129501712423430, guid: 6152841b75a24cd4bbe338366ad17895,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.0026350135
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454129501712423430, guid: 6152841b75a24cd4bbe338366ad17895,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.009356759
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454129501712423430, guid: 6152841b75a24cd4bbe338366ad17895,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0000000011301877
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454129501712423430, guid: 6152841b75a24cd4bbe338366ad17895,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 2.3196926e-16
       objectReference: {fileID: 0}
     - target: {fileID: 4396464114003664191, guid: 6152841b75a24cd4bbe338366ad17895,
         type: 3}
