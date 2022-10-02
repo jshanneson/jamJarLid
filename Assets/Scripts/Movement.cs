@@ -29,39 +29,32 @@ public class Movement : MonoBehaviour
 
     public Rigidbody rb;
 
+    PlayerScript player;
+
+    bool wasGrounded;
+    bool wasFalling;
+    float startOfFall;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+    }
+
     // Update is called once per frame
 
     void onTriggerEnter(Collision enter)
     {
-        if (enter.gameObject.layer == 7)
-        {
-            JumpBoost = true;
-            rb.AddForce(Vector3.up * 4.0f, ForceMode.Impulse);
-            //Debug.Log("Layer 7");
-        }
-
-        if (enter.gameObject.layer == 8)
-        {
-            //Debug.Log("Layer 8");
-        }
+        
     }
 
     void onTriggerExit(Collision exit)
     {
-        if (exit.gameObject.layer == 7)
-        {
-            JumpBoost = false;
-        }
+        
     }
 
     void Update()
     {
-        //jump
-        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        //Debug.Log(velocity.y);
         JumpBoost = IsOnGround(7);
-
-        //Debug.Log(JumpBoost);
 
         if (JumpBoost && JumpBoostTimer == 0.0f)
         {
@@ -101,9 +94,32 @@ public class Movement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
+        if (IsOnGround(8))
+        {
+            player.death();
+        }
+
+        if (IsOnGround(9))
+        {
+            player.JarLid();
+        }
+
+        if(!wasFalling && isFalling)
+        {
+            startOfFall = transform.position.y;
+        }
+
+        if(!wasGrounded && isGrounded)
+        {
+            FinishedFalling();
+        }
+
+        wasFalling = isFalling;
+        wasGrounded = isGrounded;
     }
 
-    bool IsOnGround(int layer)
+    public bool IsOnGround(int layer)
     {
         int layerMask = 1 << layer;
 
@@ -120,4 +136,15 @@ public class Movement : MonoBehaviour
             return false;
         }
     }
+
+    void FinishedFalling()
+    {
+        //Debug.Log("Player fell" + (startOfFall - transform.position.y) + " units");
+        if(startOfFall - transform.position.y > 2.5f)
+        {
+            player.death();
+        }
+    }
+
+    bool isFalling { get { return (!isGrounded && rb.velocity.y < 0);  } }
 }
