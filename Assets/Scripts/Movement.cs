@@ -117,6 +117,7 @@ public class Movement : MonoBehaviour
 
         wasFalling = isFalling;
         wasGrounded = isGrounded;
+        //script for checking downward velocity
     }
 
     public bool IsOnGround(int layer)
