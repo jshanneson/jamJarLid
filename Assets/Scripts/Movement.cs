@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
     public bool isGrounded = true;
     bool JumpBoost = false;
 
+    float JumpBoostTimer = 0.0f;
+
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -57,21 +59,30 @@ public class Movement : MonoBehaviour
         //jump
         //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         //Debug.Log(velocity.y);
-        if (JumpBoost)
+        JumpBoost = IsOnGround(7);
+
+        //Debug.Log(JumpBoost);
+
+        if (JumpBoost && JumpBoostTimer == 0.0f)
         {
             jumpHeight = 6.0f;
         }
 
-        isGrounded = IsOnGround();
+        isGrounded = IsOnGround(3);
 
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            JumpBoost = false;
+            jumpHeight = 2.0f;
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump"))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            if (isGrounded || JumpBoost)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            }
         }
         //gravity
         velocity.y += gravity * Time.deltaTime;
@@ -95,9 +106,9 @@ public class Movement : MonoBehaviour
         Debug.Log(rb.velocity.y);
     }
 
-    bool IsOnGround()
+    bool IsOnGround(int layer)
     {
-        int layerMask = 1 << 3;
+        int layerMask = 1 << layer;
 
         //layerMask = 1 << 7;
 
